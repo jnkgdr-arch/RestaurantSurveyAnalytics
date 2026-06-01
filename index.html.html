@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Restaurant Executive Analysis</title>
+
+<style>
+/* =========================
+   BACKGROUND
+========================= */
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #0f172a;
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    animation: bgfade 20s infinite;
+}
+
+@keyframes bgfade {
+    0% {
+        background-image: url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c");
+    }
+    33% {
+        background-image: url("https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba");
+    }
+    66% {
+        background-image: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
+    }
+    100% {
+        background-image: url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c");
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 25, 0.70);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    background: rgba(255,255,255,0.95);
+    padding: 16px 25px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px;
+    color: #0f2a44;
+}
+
+/* TOP NAV */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 10px;
+    background: rgba(255,255,255,0.92);
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 58px;
+    z-index: 999;
+    backdrop-filter: blur(8px);
+}
+
+.top-nav a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #0f2a44;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: white;
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* CARDS */
+.card {
+    background: rgba(255,255,255,0.94);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.6s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* KPI */
+.summary-kpi {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.summary-kpi div {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.summary-kpi strong {
+    color: #0ea5a4;
+    font-size: 18px;
+}
+
+/* INSIGHT */
+.insight {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+/* BARS */
+.bar { height: 18px; border-radius: 10px; background: #e2e8f0; overflow: hidden; }
+.fill { height: 100%; border-radius: 10px; }
+
+.female { background: linear-gradient(90deg, #0ea5a4, #1f4e79); width: 72%; }
+.male { background: #94a3b8; width: 28%; }
+
+.good { background: #0ea5a4; width: 75%; }
+.avg { background: #eab308; width: 45%; }
+.poor { background: #f97316; width: 30%; }
+.bad { background: #ef4444; width: 20%; }
+
+.label { font-size: 13px; margin-bottom: 5px; color: #334155; }
+
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Restaurant Executive Insights</h1>
+</header>
+
+<nav class="top-nav">
+    <a href="#summary">Executive Summary</a>
+    <a href="#a1">Visits</a>
+    <a href="#a2">Income</a>
+    <a href="#a3">Satisfaction</a>
+    <a href="#rec">Strategy</a>
+</nav>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="card" id="summary">
+<h2>Executive Summary</h2>
+
+<p>
+The dataset indicates a dominant female customer base with higher engagement and spending potential, particularly among married women without children.
+</p>
+
+<div class="insight">
+<strong>Key Insight:</strong> Female customers account for the majority of restaurant visits and represent the primary revenue-driving segment.
+</div>
+
+<div class="insight">
+<strong>Operational Insight:</strong> Satisfaction is generally positive, but a notable dissatisfaction cluster suggests retention risk among core customers.
+</div>
+
+<div class="insight">
+<strong>Strategic Impact:</strong> Improving food quality and targeting premium experiences can significantly increase repeat visitation and revenue.
+</div>
+
+<!-- UPDATED KPIs -->
+<div class="summary-kpi">
+    <div><strong>72%</strong><br>Female Share</div>
+    <div><strong>28%</strong><br>Male Share</div>
+    <div><strong>64%</strong><br>Retention Index</div>
+</div>
+
+</div>
+
+<!-- VISITS -->
+<div class="card" id="a1">
+<h2>Visits by Gender</h2>
+<div class="insight">Females are the dominant visitor group.</div>
+
+<div>
+<div class="label">Female</div>
+<div class="bar"><div class="fill female"></div></div>
+
+<div class="label" style="margin-top:10px;">Male</div>
+<div class="bar"><div class="fill male"></div></div>
+</div>
+</div>
+
+<!-- INCOME -->
+<div class="card" id="a2">
+<h2>Income Distribution</h2>
+<div class="insight">Female customers cluster in mid-to-upper income ranges.</div>
+
+<div class="label">&lt;$25K</div>
+<div class="bar"><div class="fill poor"></div></div>
+
+<div class="label">$25K–$49K</div>
+<div class="bar"><div class="fill avg"></div></div>
+
+<div class="label">$50K–$74K</div>
+<div class="bar"><div class="fill female"></div></div>
+</div>
+
+<!-- SATISFACTION -->
+<div class="card" id="a3">
+<h2>Satisfaction</h2>
+<div class="insight">Most responses are positive, but dissatisfaction exists.</div>
+
+<div class="label">Good</div>
+<div class="bar"><div class="fill good"></div></div>
+
+<div class="label">Average</div>
+<div class="bar"><div class="fill avg"></div></div>
+
+<div class="label">Poor</div>
+<div class="bar"><div class="fill poor"></div></div>
+
+<div class="label">Very Bad</div>
+<div class="bar"><div class="fill bad"></div></div>
+</div>
+
+<!-- STRATEGY -->
+<div class="card" id="rec">
+<h2>Executive Recommendations</h2>
+
+<div class="insight">Focus on premium, experience-driven dining for female customers.</div>
+<div class="insight">Introduce dual pricing strategies for different income segments.</div>
+<div class="insight">Improve food consistency and presentation to reduce dissatisfaction.</div>
+
+</div>
+
+</div>
+
+<footer>
+Executive Restaurant Analysis | Portfolio Dashboard
+</footer>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+},{threshold:0.15});
+
+cards.forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
