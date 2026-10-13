@@ -1,287 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Restaurant Executive Analysis</title>
-
-<style>
-/* =========================
-   BACKGROUND
-========================= */
-body {
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #0f172a;
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    animation: bgfade 20s infinite;
-}
-
-@keyframes bgfade {
-    0% {
-        background-image: url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c");
-    }
-    33% {
-        background-image: url("https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba");
-    }
-    66% {
-        background-image: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
-    }
-    100% {
-        background-image: url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c");
-    }
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 14, 25, 0.70);
-    z-index: -1;
-}
-
-/* HEADER */
-header {
-    background: rgba(255,255,255,0.95);
-    padding: 16px 25px;
-    border-bottom: 1px solid #e5e7eb;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 18px;
-    color: #0f2a44;
-}
-
-/* TOP NAV */
-.top-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 10px;
-    background: rgba(255,255,255,0.92);
-    border-bottom: 1px solid #e5e7eb;
-    position: sticky;
-    top: 58px;
-    z-index: 999;
-    backdrop-filter: blur(8px);
-}
-
-.top-nav a {
-    text-decoration: none;
-    font-size: 12px;
-    color: #0f2a44;
-    padding: 8px 12px;
-    border-radius: 999px;
-    border: 1px solid #e5e7eb;
-    background: white;
-}
-
-/* LAYOUT */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
-}
-
-/* CARDS */
-.card {
-    background: rgba(255,255,255,0.94);
-    padding: 20px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
-    opacity: 0;
-    transform: translateY(25px);
-    transition: all 0.6s ease;
-}
-
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* KPI */
-.summary-kpi {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.summary-kpi div {
-    background: white;
-    border: 1px solid #e5e7eb;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.summary-kpi strong {
-    color: #0ea5a4;
-    font-size: 18px;
-}
-
-/* INSIGHT */
-.insight {
-    background: #fff7ed;
-    border-left: 4px solid #f59e0b;
-    padding: 12px;
-    border-radius: 8px;
-    margin: 12px 0;
-    font-size: 14px;
-}
-
-/* BARS */
-.bar { height: 18px; border-radius: 10px; background: #e2e8f0; overflow: hidden; }
-.fill { height: 100%; border-radius: 10px; }
-
-.female { background: linear-gradient(90deg, #0ea5a4, #1f4e79); width: 72%; }
-.male { background: #94a3b8; width: 28%; }
-
-.good { background: #0ea5a4; width: 75%; }
-.avg { background: #eab308; width: 45%; }
-.poor { background: #f97316; width: 30%; }
-.bad { background: #ef4444; width: 20%; }
-
-.label { font-size: 13px; margin-bottom: 5px; color: #334155; }
-
-footer {
-    text-align: center;
-    padding: 25px;
-    font-size: 12px;
-    color: #cbd5e1;
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An editorial exploration of consumer dining preferences, audience composition, customer satisfaction, and restaurant strategy.">
+<title>Restaurant Survey Analytics | Dining, understood.</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
 </head>
-
 <body>
-
-<header>
-    <h1>Restaurant Executive Insights</h1>
+<a class="skip" href="#main">Skip to research</a>
+<header class="site-header">
+<a class="brand" href="#"><span class="brand-icon" aria-hidden="true">r.</span><span>RESTAURANT<br><b>SURVEY ANALYTICS</b></span></a>
+<nav aria-label="Main navigation"><a href="#highlights">Overview</a><a href="#research">Research Findings</a><a href="#rec">Recommendations <span aria-hidden="true">↗</span></a></nav>
+<span class="header-note">A MARKET RESEARCH PORTFOLIO</span>
 </header>
-
-<nav class="top-nav">
-    <a href="#summary">Executive Summary</a>
-    <a href="#a1">Visits</a>
-    <a href="#a2">Income</a>
-    <a href="#a3">Satisfaction</a>
-    <a href="#rec">Strategy</a>
-</nav>
-
-<div class="container">
-
-<!-- EXECUTIVE SUMMARY -->
-<div class="card" id="summary">
-<h2>Executive Summary</h2>
-
-<p>
-The dataset indicates a dominant female customer base with higher engagement and spending potential, particularly among married women without children.
-</p>
-
-<div class="insight">
-<strong>Key Insight:</strong> Female customers account for the majority of restaurant visits and represent the primary revenue-driving segment.
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+<div class="hero-copy"><p class="eyebrow"><span></span> INSIGHTS THAT INFORM BETTER DINING</p><h1 id="hero-title">Restaurant<br>Survey Analytics<span class="period">.</span></h1><p class="hero-subtitle">Understanding Consumer Dining Preferences<br>Through Market Research</p><p class="intro">Behind every dining decision is a story. Explore consumer survey findings to understand who visits, what shapes their experience, and where restaurant strategy can go next.</p><a class="button" href="#highlights">Explore Findings <span aria-hidden="true">↓</span></a><span class="hero-caption">THE PEOPLE. THE PREFERENCES. THE POSSIBILITIES.</span></div>
+<div class="hero-photo"><img src="assets/hero.jpg" alt="A plated salmon meal in a warmly lit restaurant" fetchpriority="high"><div class="photo-label"><span>THE ART OF UNDERSTANDING</span><p>A better experience<br>starts with insight.</p></div><span class="photo-index">RESEARCH &amp; DINING</span></div>
+</section>
+<section class="highlights" id="highlights" aria-labelledby="glance-title">
+<div class="glance-heading"><h2 id="glance-title">Research at a Glance</h2><a class="outline-link" href="#research">Learn more<span class="skip-label"> about the research</span></a></div>
+<div class="photo-grid">
+<a class="photo-card" href="#methodology"><img src="assets/restaurant.jpg" alt="Restaurant tables beneath woven pendant lights" loading="lazy"><div class="card-copy"><h3>Survey Participation</h3><p>Consumer perspectives on visits, income, and satisfaction. Explore the approach and the available evidence.</p></div></a>
+<a class="photo-card" href="#a1"><img src="assets/audience.jpg" alt="Diners sharing food and drinks around a restaurant table" loading="lazy"><div class="card-copy"><h3>Audience Demographics</h3><p>72% female share. A dominant female customer base shapes the audience story.</p></div></a>
+<a class="photo-card" href="#a3"><img src="assets/quality.jpg" alt="Plates of grilled food and fresh greens at a restaurant table" loading="lazy"><div class="card-copy"><h3>Customer Retention</h3><p>64% reported Retention Index. Explore the satisfaction story and the index’s undocumented definition.</p></div></a>
+<a class="photo-card" href="#rec"><img src="assets/dining.jpg" alt="A warmly lit restaurant with greenery and tables set for dining" loading="lazy"><div class="card-copy"><h3>Strategic Recommendations</h3><p>Quality first. Experience next. Turn audience insights into thoughtful dining opportunities.</p></div></a>
 </div>
-
-<div class="insight">
-<strong>Operational Insight:</strong> Satisfaction is generally positive, but a notable dissatisfaction cluster suggests retention risk among core customers.
+</section>
+<section class="kpi-section" aria-label="Key figures"><div class="kpi-intro"><p class="eyebrow">THE NUMBERS, IN CONTEXT</p><h2>A snapshot<br>of the findings.</h2></div><a class="kpi" href="#a1"><strong>72<span>%</span></strong><h3>Female share</h3><p>Reported audience composition</p><span>View demographics ↗</span></a><a class="kpi" href="#a1"><strong>28<span>%</span></strong><h3>Male share</h3><p>Reported audience composition</p><span>View demographics ↗</span></a><a class="kpi" href="#a3"><strong>64<span>%</span></strong><h3>Retention Index</h3><p>Calculation not supplied in source</p><span>Read the context ↗</span></a></section>
+<section class="research-section" id="research">
+<div class="section-heading"><div><p class="eyebrow">BEYOND THE HEADLINES</p><h2>The research, in focus.</h2></div><p>Explore the evidence.<br>Understand what it means.</p></div>
+<div class="research-layout"><nav class="research-nav" aria-label="Research sections"><a href="#summary">Executive summary</a><a href="#research-findings">Research Findings</a><a href="#rec">Marketing strategy</a></nav>
+<div class="analysis">
+<article id="summary"><p class="eyebrow">EXECUTIVE SUMMARY</p><h3>Know your core customer.</h3><p>The dataset indicates a dominant female customer base with higher engagement and spending potential, particularly among married women without children.</p><div class="takeaway"><span>KEY INSIGHT</span><p>Female customers account for the majority of restaurant visits and represent the primary revenue-driving segment.</p></div><details><summary>Operational and strategic implications</summary><p><strong>Operational Insight:</strong> Satisfaction is generally positive, but a notable dissatisfaction cluster suggests retention risk among core customers.</p><p><strong>Strategic Impact:</strong> Improving food quality and targeting premium experiences can significantly increase repeat visitation and revenue.</p><p>These are interpretations from the original project; the page does not supply supporting revenue figures or an estimated effect size.</p></details></article>
+<div class="research-grid" id="research-findings">
+<article class="research-topic" id="methodology"><div class="research-photo"><img src="assets/research-approach.jpg" alt="Sunlit restaurant seating and plants" loading="lazy"><div class="research-photo-copy"><h3>Research Approach</h3><p>Consumer perspectives on visits, income, and satisfaction—with the evidence and limitations in context.</p></div></div><details class="research-evidence"><summary>Explore the research<span class="skip-label">: Research Approach</span></summary><div class="research-evidence-content"><p class="eyebrow">RESEARCH APPROACH</p><h3>Consumer perspectives, with context.</h3><p>This portfolio presents existing consumer survey analysis across gender, visits, income, and satisfaction to inform restaurant marketing and customer experience strategies.</p><details open><summary>Evidence and limitations</summary><p>The original project is a single executive analysis page. No underlying dataset, questionnaire, sampling method, survey dates, sample count, bibliography, or external references were supplied.</p><p>The requested “500+ responses” cannot be verified from the existing repository and is therefore not presented as a finding. The 72% female share, 28% male share, and 64% Retention Index are reported exactly as in the source. The source does not define the Retention Index; it should not be interpreted as a measured repeat-visit rate.</p><p>Income and satisfaction charts retain the original relative bar widths. Those widths are not labeled percentages in the source, have no documented units, and do not form a verified distribution. They are shown as illustrative source scales, not new quantitative findings.</p></details></div></details></article>
+<article class="research-topic" id="a1"><div class="research-photo"><img src="assets/research-audience.jpg" alt="A restaurant interior with warm lighting and greenery" loading="lazy"><div class="research-photo-copy"><h3>Audience Demographics &amp; Visits</h3><p>72% female share. Females are the dominant visitor group.</p></div></div><details class="research-evidence"><summary>Explore the research<span class="skip-label">: Audience Demographics &amp; Visits</span></summary><div class="research-evidence-content"><p class="eyebrow">AUDIENCE DEMOGRAPHICS &amp; VISITS</p><h3>A distinctly female audience.</h3><p>Females are the dominant visitor group.</p><div class="chart" role="group" aria-label="Visits by gender: female 72 percent, male 28 percent"><div class="chart-heading"><h4>Visits by Gender</h4><span>REPORTED SHARE</span></div><div class="chart-row"><div class="chart-label">Female <b>72%</b></div><div class="bar"><div style="width:72%"></div></div></div><div class="chart-row"><div class="chart-label">Male <b>28%</b></div><div class="bar"><div class="sage" style="width:28%"></div></div></div></div><p class="chart-caption">The source describes these figures as female and male share, and presents them in its visits-by-gender chart.</p><div class="takeaway"><span>MARKETING OPPORTUNITY</span><p>Use the core audience insight to inform premium, experience-driven positioning, while keeping other customer segments in view.</p></div></div></details></article>
+<article class="research-topic" id="a2"><div class="research-photo"><img src="assets/research-income.jpg" alt="A restaurant table in a softly lit dining room" loading="lazy"><div class="research-photo-copy"><h3>Consumer Income</h3><p>Female customers cluster in mid-to-upper income ranges.</p></div></div><details class="research-evidence"><summary>Explore the research<span class="skip-label">: Consumer Income</span></summary><div class="research-evidence-content"><p class="eyebrow">CONSUMER INCOME</p><h3>Spending potential shapes the opportunity.</h3><p>Female customers cluster in mid-to-upper income ranges.</p><div class="chart" role="group" aria-label="Income distribution on the original illustrative scale"><div class="chart-heading"><h4>Income Distribution</h4><span>ILLUSTRATIVE SOURCE SCALE</span></div><div class="chart-row"><div class="chart-label">&lt;$25K</div><div class="bar"><div class="taupe" style="width:30%"></div></div></div><div class="chart-row"><div class="chart-label">$25K–$49K</div><div class="bar"><div class="sage" style="width:45%"></div></div></div><div class="chart-row"><div class="chart-label">$50K–$74K</div><div class="bar"><div style="width:72%"></div></div></div></div><p class="chart-caption">Original bar lengths preserved. Units and numerical income shares are not supplied.</p><details><summary>What this means for restaurant marketing</summary><p>The original recommendation is to introduce dual pricing strategies for different income segments. Consider differentiated offers alongside premium dining options; the source does not quantify willingness to pay.</p></details></div></details></article>
+<article class="research-topic" id="a3"><div class="research-photo"><img src="assets/research-experience.jpg" alt="A plated meal and drinks on a restaurant table" loading="lazy"><div class="research-photo-copy"><h3>Customer Experience &amp; Retention</h3><p>Most responses are positive, but dissatisfaction exists. Explore the reported 64% Retention Index and its limitations.</p></div></div><details class="research-evidence"><summary>Explore the research<span class="skip-label">: Customer Experience &amp; Retention</span></summary><div class="research-evidence-content"><p class="eyebrow">CUSTOMER EXPERIENCE &amp; RETENTION</p><h3>Positive experiences. Room to improve.</h3><p>Most responses are positive, but dissatisfaction exists.</p><div class="chart" role="group" aria-label="Satisfaction on the original illustrative scale"><div class="chart-heading"><h4>Satisfaction</h4><span>ILLUSTRATIVE SOURCE SCALE</span></div><div class="chart-controls" aria-label="Highlight a satisfaction category"><button type="button" class="active" aria-pressed="true" data-category="all">All responses</button><button type="button" aria-pressed="false" data-category="good">Good</button><button type="button" aria-pressed="false" data-category="average">Average</button><button type="button" aria-pressed="false" data-category="poor">Poor</button><button type="button" aria-pressed="false" data-category="bad">Very Bad</button></div><div class="chart-row" data-row="good"><div class="chart-label">Good</div><div class="bar"><div style="width:75%"></div></div></div><div class="chart-row" data-row="average"><div class="chart-label">Average</div><div class="bar"><div class="sage" style="width:45%"></div></div></div><div class="chart-row" data-row="poor"><div class="chart-label">Poor</div><div class="bar"><div class="taupe" style="width:30%"></div></div></div><div class="chart-row" data-row="bad"><div class="chart-label">Very Bad</div><div class="bar"><div class="clay" style="width:20%"></div></div></div><p class="selection-note" aria-live="polite">Showing all original satisfaction categories.</p></div><p class="chart-caption">Original bar lengths preserved. These are not verified response percentages.</p><div class="takeaway"><span>RETENTION CONTEXT · 64% INDEX</span><p>The source reports a 64% Retention Index and identifies dissatisfaction as a retention risk. Its calculation and relationship to actual repeat visitation are not documented.</p></div><details><summary>Explore the business implication</summary><p>Improve food consistency and presentation to reduce dissatisfaction. The original research points to a cluster of dissatisfied core customers; the supplied page does not quantify its size or prove causation.</p></details></div></details></article>
 </div>
-
-<div class="insight">
-<strong>Strategic Impact:</strong> Improving food quality and targeting premium experiences can significantly increase repeat visitation and revenue.
-</div>
-
-<!-- UPDATED KPIs -->
-<div class="summary-kpi">
-    <div><strong>72%</strong><br>Female Share</div>
-    <div><strong>28%</strong><br>Male Share</div>
-    <div><strong>64%</strong><br>Retention Index</div>
-</div>
-
-</div>
-
-<!-- VISITS -->
-<div class="card" id="a1">
-<h2>Visits by Gender</h2>
-<div class="insight">Females are the dominant visitor group.</div>
-
-<div>
-<div class="label">Female</div>
-<div class="bar"><div class="fill female"></div></div>
-
-<div class="label" style="margin-top:10px;">Male</div>
-<div class="bar"><div class="fill male"></div></div>
-</div>
-</div>
-
-<!-- INCOME -->
-<div class="card" id="a2">
-<h2>Income Distribution</h2>
-<div class="insight">Female customers cluster in mid-to-upper income ranges.</div>
-
-<div class="label">&lt;$25K</div>
-<div class="bar"><div class="fill poor"></div></div>
-
-<div class="label">$25K–$49K</div>
-<div class="bar"><div class="fill avg"></div></div>
-
-<div class="label">$50K–$74K</div>
-<div class="bar"><div class="fill female"></div></div>
-</div>
-
-<!-- SATISFACTION -->
-<div class="card" id="a3">
-<h2>Satisfaction</h2>
-<div class="insight">Most responses are positive, but dissatisfaction exists.</div>
-
-<div class="label">Good</div>
-<div class="bar"><div class="fill good"></div></div>
-
-<div class="label">Average</div>
-<div class="bar"><div class="fill avg"></div></div>
-
-<div class="label">Poor</div>
-<div class="bar"><div class="fill poor"></div></div>
-
-<div class="label">Very Bad</div>
-<div class="bar"><div class="fill bad"></div></div>
-</div>
-
-<!-- STRATEGY -->
-<div class="card" id="rec">
-<h2>Executive Recommendations</h2>
-
-<div class="insight">Focus on premium, experience-driven dining for female customers.</div>
-<div class="insight">Introduce dual pricing strategies for different income segments.</div>
-<div class="insight">Improve food consistency and presentation to reduce dissatisfaction.</div>
-
-</div>
-
-</div>
-
-<footer>
-Executive Restaurant Analysis | Portfolio Dashboard
-</footer>
-
-<script>
-const cards = document.querySelectorAll(".card");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-},{threshold:0.15});
-
-cards.forEach(c => observer.observe(c));
-</script>
-
+</div></div>
+</section>
+<section class="recommendations" id="rec"><div class="section-heading"><div><p class="eyebrow">FROM INSIGHT TO ACTION</p><h2>A more thoughtful<br>restaurant strategy.</h2></div><p>Research-informed proposals.<br>Designed around the customer.</p></div><div class="recommendation-grid"><article><h3>Make quality<br>the constant.</h3><p class="recommendation-label">THE INSIGHT</p><p>Satisfaction is generally positive, with a notable dissatisfaction cluster.</p><p class="recommendation-label">THE PROPOSED ACTION</p><p>Improve food consistency and presentation to reduce dissatisfaction. A more dependable experience could support repeat visitation.</p><span class="recommendation-tag">FOOD QUALITY</span></article><article><h3>Elevate the<br>dining experience.</h3><p class="recommendation-label">THE INSIGHT</p><p>The analysis identifies a dominant female audience with higher engagement and spending potential.</p><p class="recommendation-label">THE PROPOSED ACTION</p><p>Focus on premium, experience-driven dining for female customers. Thoughtful service and presentation could strengthen the offer for this core audience.</p><span class="recommendation-tag">PREMIUM EXPERIENCES</span></article><article><h3>Offer choice.<br>Respect different budgets.</h3><p class="recommendation-label">THE INSIGHT</p><p>Female customers cluster in mid-to-upper income ranges, with other income segments also represented.</p><p class="recommendation-label">THE PROPOSED ACTION</p><p>Introduce dual pricing strategies for different income segments. Differentiate value and premium offers to serve varied dining budgets.</p><span class="recommendation-tag">SEGMENTED PRICING</span></article></div><p class="strategy-note">These recommendations preserve the original project’s proposed actions. Business outcomes are opportunities to test, not measured results.</p></section>
+<section class="closing"><p class="eyebrow">BETTER QUESTIONS. BETTER EXPERIENCES.</p><h2>Let the customer<br>inform what comes next.</h2><a href="#research">Return to the research <span aria-hidden="true">↗</span></a></section>
+<details class="photo-credits" id="photo-credits"><summary>Photography credits</summary><p>Photographs supplied in the repository’s assets folder. They illustrate dining settings and are not photographs of survey participants.</p><ul><li>Hero: <a href="https://www.pexels.com/photo/31332360/">Daroon · Pexels</a></li><li>Survey participation: <a href="https://www.pexels.com/photo/10187182/">Bianca Jelezniac · Pexels</a></li><li>Audience demographics: <a href="https://www.pexels.com/photo/36317273/">Ashraful Islam · Pexels</a></li><li>Customer retention: <a href="https://www.pexels.com/photo/37447016/">Peter J Kambey · Pexels</a></li><li>Strategic recommendations: <a href="https://www.pexels.com/photo/1581384/">René Terp · Pexels</a></li><li>Research approach: <a href="https://www.pexels.com/photo/19542679/">Beyza Oruk · Pexels</a></li><li>Audience &amp; visits: <a href="https://www.pexels.com/photo/26076228/">Luis Yanez · Pexels</a></li><li>Consumer income: <a href="https://www.pexels.com/photo/30420679/">Konrads Photo · Pexels</a></li><li>Experience &amp; retention: <a href="https://www.pexels.com/photo/38795631/">Aabouden Yassir · Pexels</a></li></ul><p><a href="https://www.pexels.com/license/">Pexels License</a></p></details>
+</main>
+<footer><a class="footer-brand" href="#">Restaurant Survey Analytics<span>Executive Restaurant Analysis · Portfolio Dashboard</span></a><p>Research presented with context.<br>Photography: <a href="#photo-credits">Pexels contributors</a> · <a href="#methodology">Source &amp; limitations</a></p><a href="#" class="back-top">Back to top ↑</a></footer>
 </body>
 </html>
