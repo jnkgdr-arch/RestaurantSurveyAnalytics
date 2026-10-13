@@ -79,3 +79,21 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--m
 
 /* Patterns distinguish similar dark chart colors without relying on hue alone. */
 .bar .clay{background:repeating-linear-gradient(135deg,var(--midnight) 0 6px,var(--dusty-blue) 6px 8px)}
+
+/* Natural photography above a readable lower caption gradient. */
+.photo-card:after,.research-photo:after{background:linear-gradient(180deg,rgba(5,14,32,0) 0%,rgba(5,14,32,0) 55%,rgba(5,14,32,.78) 68%,rgba(5,14,32,.94) 100%)}
+.card-copy,.research-photo-copy{background:linear-gradient(180deg,rgba(5,14,32,.78),rgba(5,14,32,.94));box-shadow:0 0 22px 14px rgba(5,14,32,.76);text-shadow:0 1px 2px var(--midnight)}
+.hero-photo:after{background:linear-gradient(180deg,transparent 55%,rgba(5,14,32,.88) 100%)}
+.photo-label{background:rgba(5,14,32,.76);box-shadow:0 0 24px 12px rgba(5,14,32,.65)}
+.negative-kpi strong{font-size:clamp(34px,3.7vw,53px)}
+.chart-label{flex-wrap:wrap;gap:4px 10px}.chart-label b{white-space:nowrap}
+.chart-scale{display:flex;justify-content:space-between;gap:10px;font-size:9px;color:var(--midnight)}
+#a3 .bar{overflow:visible}#a3 .satisfaction-fill{position:relative;min-height:12px}
+.satisfaction-fill.selected{outline:3px solid var(--amber);outline-offset:0;animation:selection-outline 450ms ease-out}
+@keyframes selection-outline{from{outline-color:transparent;outline-offset:5px}to{outline-color:var(--amber);outline-offset:0}}
+.satisfaction-bad{background:repeating-linear-gradient(90deg,var(--midnight) 0 4px,var(--dusty-blue) 4px 6px)!important}
+.selection-summary{display:block;font-size:11px;color:var(--midnight);margin-top:18px}
+.data-table-wrap{overflow-x:auto;max-width:100%;margin:20px 0}.data-table{border-collapse:collapse;width:100%;min-width:400px;font-size:12px}.data-table caption{text-align:left;font-weight:600;padding-bottom:10px}.data-table th,.data-table td{text-align:left;padding:9px;border-bottom:1px solid var(--dusty-blue)}.data-table thead,.data-table tfoot{background:var(--blue-tint)}
+.report-link{display:inline-block;color:var(--sapphire);border-bottom:2px solid var(--amber);font-size:13px}.source-status{font-size:12px!important}
+.references-section{padding-top:30px;padding-bottom:35px;border-top:1px solid var(--dusty-blue)}.references-section h2{font-size:32px;margin:12px 0 20px}.references-section p,.references-section li{font-size:13px;line-height:1.8}.references-section ul{padding-left:20px}.references-section li{margin-bottom:14px}
+@media(prefers-reduced-motion:reduce){.satisfaction-fill.selected{animation:none}}

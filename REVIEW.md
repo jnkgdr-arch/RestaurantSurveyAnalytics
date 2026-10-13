@@ -17,11 +17,14 @@ PHOTOGRAPHY.md. There are no AI-generated photographs or runtime asset CDN
 requests. Credit names follow uploaded filenames; current Pexels metadata was
 not independently retrieved through the cloud proxy.
 
-The original findings and nine chart bar widths are preserved. The original
-page reports 72% female share, 28% male share and 64% Retention Index. The index
-has no supplied definition; no sample count is supplied. The requested
-“500+ responses” remains flagged rather than presented as a measured finding.
-See RESEARCH-AUDIT.md for the exact source evidence and limitations.
+Research figures were checked against the complete nine-page original PDF:
+500 respondents, 55% female / 45% male, all five Question 1C categories and
+39.8% negative food satisfaction. Marital/parental and income tables now use
+report counts. Visit-related pivots are labeled record counts rather than sums
+of dining trips. Full page 9 references and original URLs are included.
+The unchanged PDF is linked from research/ABC-Restaurant-Analysis.pdf; the
+original upload remains untouched. The underlying workbook is not available.
+See RESEARCH-AUDIT.md for source discrepancies and research/README.md for hashes.
 
 ## Local development
 
@@ -47,7 +50,12 @@ optimized assets and review documentation belong in this change.
 - Reduced-motion behavior, no horizontal overflow and no JavaScript errors.
 - Main color pairs exceed WCAG AA text contrast; important chart labels
   identify categories without relying on color alone.
-- Original insight/recommendation statements and chart widths retained.
+- PDF tables and arithmetic checked; previous unsupported figures corrected.
 
 Actual GitHub Pages deployment is left to the repository's existing
 configuration after the owner reviews and merges the pull request.
+
+Food-satisfaction selection animates a 3px amber outline around the actual
+bar fill for 450ms. All responses clears the outline; reduced motion disables
+animation. Selection output reports counts, percentage and gender breakdown.
+The report link returns the complete original PDF; both copies have identical SHA-256 hashes.

@@ -1,16 +1,19 @@
-// Progressive enhancement: all findings and native disclosures work without JavaScript.
+// Progressive enhancement: charts, counts and native disclosures are readable without JavaScript.
 const controls = document.querySelectorAll('[data-category]');
-const rows = document.querySelectorAll('[data-row]');
-const note = document.querySelector('.selection-note');
+const rows = document.querySelectorAll('#a3 [data-row]');
+const result = document.querySelector('.selection-summary');
 controls.forEach(button => button.addEventListener('click', () => {
-  const selected = button.dataset.category;
+  const category = button.dataset.category;
   controls.forEach(control => {
     const active = control === button;
     control.classList.toggle('active', active);
     control.setAttribute('aria-pressed', String(active));
   });
-  rows.forEach(row => row.classList.toggle('dimmed', selected !== 'all' && row.dataset.row !== selected));
-  note.textContent = selected === 'all' ? 'Showing all original satisfaction categories.' : `Highlighting ${button.textContent}. Original bar lengths are unchanged; units are not supplied in the source.`;
+  rows.forEach(row => row.querySelector('.satisfaction-fill').classList.toggle('selected', category === row.dataset.row));
+  const selected = [...rows].find(row => row.dataset.row === category);
+  result.textContent = selected
+    ? `${button.textContent}: ${selected.dataset.count} responses · ${selected.dataset.percent}% · Female ${selected.dataset.female}, Male ${selected.dataset.male}`
+    : '500 responses · 100.0%';
 }));
 if ('IntersectionObserver' in window) {
   const links = document.querySelectorAll('.research-nav a');
